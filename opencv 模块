@@ -1,6 +1,14 @@
-	
-  img_bg = np.zeros((100,100),np.uint8)
-	bgr_img = cv2.cvtColor(img_bg,cv2.COLOR_GRAY2BGR)
-	bgr_img[:,:,0] = 0
-	bgr_img[:,:,1] = 0
-	bgr_img[:,:,2] = 0
+#读取含中文文件名的文件
+img = cv2.imdecode(np.fromfile(file,dtype=np.uint8),-1)
+#保存含中文文件名的文件
+cv2.imencode('.jpg',img)[1].tofile(save_name)
+
+#创建一个100*100的新图片，背景颜色(0,0,0)
+img_bg = np.zeros((100,100),np.uint8)
+bgr_img = cv2.cvtColor(img_bg,cv2.COLOR_GRAY2BGR)
+bgr_img[:,:,0] = 0
+bgr_img[:,:,1] = 0
+bgr_img[:,:,2] = 0
+
+#截取小图覆盖到大图的某个区域
+big_image[star_y:star_y+small_image_height,star_x:star_x+small_image_width] = small_image
