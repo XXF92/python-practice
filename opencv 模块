@@ -1,0 +1,6 @@
+	
+  img_bg = np.zeros((100,100),np.uint8)
+	bgr_img = cv2.cvtColor(img_bg,cv2.COLOR_GRAY2BGR)
+	bgr_img[:,:,0] = 0
+	bgr_img[:,:,1] = 0
+	bgr_img[:,:,2] = 0
